@@ -1,0 +1,72 @@
+﻿@using System.Data;
+@model DataTable
+
+    @{
+        ViewBag.Title = "Выдано";
+    }
+
+    <h2>Выдано</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                id Чит-ля
+            </th>
+            <th>
+                ФИО Чит-ля
+            </th>
+            <th>
+                Дата рожд
+            </th>
+            <th>
+                Паспорт
+            </th>
+            <th>
+                id Книги
+            </th>
+            <th>
+                Название
+            </th>
+            <th>
+                Автор
+            </th>
+            <th>
+                Дата издания
+            </th>
+            <th>
+                Дата написания
+            </th>
+            <th>
+                Дата выдачи
+            </th>
+            <th>
+                Дата возврата
+            </th>
+            <th>
+                Времени на возврат
+            </th>
+        </tr>
+
+        @foreach (DataRow row in Model.Rows)
+        {
+        <tr>
+            @foreach(var item in row.ItemArray)
+            {
+            <td>
+                @try
+                {
+                    @DateTime.Parse(item.ToString()).ToString("yyyy-MM-dd");
+                }
+                catch
+                {
+                    @Html.DisplayFor(modelItem => item)
+                }
+            </td>
+            }
+</tr>
+        }
+
+    </table>

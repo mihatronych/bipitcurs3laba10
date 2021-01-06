@@ -1,0 +1,59 @@
+﻿@model IEnumerable<laba9.Models.Outputs>
+
+@{
+    ViewBag.Title = "Журнал";
+}
+<h3>@ViewBag.user</h3>
+<h2>Журнал</h2>
+<p>
+    @if (@User.Identity.IsAuthenticated)
+    {@Html.ActionLink("Create New", "CreateJournal")}
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            ID Чит-ля
+        </th>
+        <th>
+            ID книги
+        </th>
+        <th>
+            Дата выдачи
+        </th>
+        <th>
+            Дата возврата
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.o_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.B_id)
+        </td>
+        <td>
+            @item.o_dt_out.ToString("yyyy-MM-dd")
+        </td>
+        <td>
+            @item.o_dt_in.ToString("yyyy-MM-dd")
+        </td>
+        <td>
+            @if (@User.Identity.IsAuthenticated)
+            {@Html.ActionLink("Edit", "EditJournal", new { id = item.o_id })} |
+            @Html.ActionLink("Details", "DetailsJournal", new { id = item.o_id }) |
+            @if (@User.Identity.IsAuthenticated)
+            {@Html.ActionLink("Delete", "DeleteJournal", new { id = item.o_id })}
+        </td>
+    </tr>
+}
+
+</table>

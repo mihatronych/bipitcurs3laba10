@@ -1,0 +1,113 @@
+﻿@model laba9.Models.Outputs
+
+@{
+    ViewBag.Title = "Delete";
+}
+<h3>@ViewBag.user</h3>
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Journal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.o_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.o_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.R_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.R_id)
+        </dd>
+
+        <dt>
+            <label for="">r_fio</label>
+        </dt>
+        <dd>
+            @ViewBag.Readers.r_fio
+        </dd>
+
+        <dt>
+            <label for="">r_dt_birth</label>
+        </dt>
+        <dd>
+            @ViewBag.Readers.r_dt_birth
+        </dd>
+
+        <dt>
+            <label for="">r_passport</label>
+        </dt>
+        <dd>
+            @ViewBag.Readers.r_passport
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.B_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.B_id)
+        </dd>
+
+        <dt>
+            <label for="">b_name</label>
+        </dt>
+        <dd>
+            @ViewBag.Books.b_name
+        </dd>
+
+        <dt>
+            <label for="">b_author</label>
+        </dt>
+        <dd>
+            @ViewBag.Books.b_author
+        </dd>
+
+        <dt>
+            <label for="">b_publ</label>
+        </dt>
+        <dd>
+            @ViewBag.Books.b_publ
+        </dd>
+
+        <dt>
+            <label for="">b_born</label>
+        </dt>
+        <dd>
+            @ViewBag.Books.b_born
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.o_dt_out)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.o_dt_out)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.o_dt_in)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.o_dt_in)
+        </dd>
+
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Journal")
+        </div>
+    }
+</div>

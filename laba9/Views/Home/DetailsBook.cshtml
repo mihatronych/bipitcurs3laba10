@@ -1,0 +1,51 @@
+﻿@model laba9.Models.Books
+
+@{
+    ViewBag.Title = "Details";
+}
+<h3>@ViewBag.user</h3>
+<h2>Details</h2>
+
+<div>
+    <h4>Books</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.b_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.b_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.b_author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.b_author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.b_publ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.b_publ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.b_born)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.b_born)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (@User.Identity.IsAuthenticated)
+    {@Html.ActionLink("Edit", "EditBook", new { id = Model.b_id }) }|
+    @Html.ActionLink("Back to List", "Books")
+</p>

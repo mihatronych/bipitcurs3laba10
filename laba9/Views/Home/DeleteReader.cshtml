@@ -1,0 +1,48 @@
+﻿@model laba9.Models.Readers
+
+@{
+    ViewBag.Title = "Delete";
+}
+<h3>@ViewBag.user</h3>
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Readers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.r_fio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.r_fio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.r_dt_birth )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.r_dt_birth, new { htmlAttributes = new { @class = "datefield", @type = "date" } })
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.r_passport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.r_passport)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Readers")
+        </div>
+    }
+</div>
